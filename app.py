@@ -66,6 +66,9 @@ class ExcelOracleApp:
         canvas = FigureCanvasTkAgg(fig, master=plot_window)
         canvas.get_tk_widget().pack()
 
+        plot.plot(self.df['Day'], self.df['Sales'], 'b-', label='Historical Data')
+        plot.plot(future_days['Day'], future_sales, 'r--', label='Predicted Future')
+
 if __name__ == "__main__":
     root = tk.Tk()
     app = ExcelOracleApp(root)
