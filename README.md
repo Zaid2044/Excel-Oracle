@@ -47,10 +47,12 @@ Run the main script from your terminal:
 python app.py
 ```
 
-  **1. A window will appear. Click "Load Excel File".**
-  **2. Select a .csv or .xlsx file containing your time-series data.**
-  **3. The "Predict The Future" button will become clickable. Click it.**
-  **4.A new window will pop up, revealing the prophecy in a beautiful graph.** 
+### Instructions
+
+1.  **A window will appear. Click "Load Excel File".**
+2.  **Select a .csv or .xlsx file containing your time-series data.**
+3.  **The "Predict The Future" button will become clickable. Click it.**
+4.  **A new window will pop up, revealing the prophecy in a beautiful graph.**
 
 ## The Scrolls (Data Format)
 
