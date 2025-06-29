@@ -39,7 +39,17 @@ class ExcelOracleApp:
             self.label.config(text=f"Error: {e}")
 
     def predict(self):
-        pass
+        if self.df is None:
+            self.label.config(text="No data loaded to predict.")
+            return
+
+        X = self.df[['Day']]
+        y = self.df['Sales']
+
+        model = LinearRegression()
+        model.fit(X, y)
+
+        print("Model trained successfully.")
 
 if __name__ == "__main__":
     root = tk.Tk()
