@@ -57,9 +57,14 @@ class ExcelOracleApp:
         
         future_sales = model.predict(future_days)
 
-        for day, sale in zip(future_days['Day'], future_sales):
-            print(f"Predicted sales for day {day}: {int(sale)}")
+        plot_window = tk.Toplevel(self.root)
+        plot_window.title("The Future is Now")
 
+        fig = Figure(figsize=(6, 4), dpi=100)
+        plot = fig.add_subplot(111)
+
+        canvas = FigureCanvasTkAgg(fig, master=plot_window)
+        canvas.get_tk_widget().pack()
 
 if __name__ == "__main__":
     root = tk.Tk()
