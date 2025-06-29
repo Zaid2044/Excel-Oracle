@@ -30,8 +30,10 @@ class ExcelOracleApp:
                 self.df = pd.read_csv(filepath)
             else:
                 self.df = pd.read_excel(filepath)
+            self.label.config(text=f"Loaded: {filepath.split('/')[-1]}")
+            self.predict_button.config(state=tk.NORMAL)
         except Exception as e:
-            print(f"Error loading file: {e}")
+            self.label.config(text=f"Error: {e}")
 
     def predict(self):
         pass
