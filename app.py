@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 import pandas as pd
+import lightgbm as lgb
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
@@ -49,7 +50,7 @@ class ExcelOracleApp:
         X = self.df[['Day']]
         y = self.df['Sales']
 
-        model = LinearRegression()
+        model = lgb.LGBMRegressor()
         model.fit(X, y)
 
         last_day = self.df['Day'].max()
