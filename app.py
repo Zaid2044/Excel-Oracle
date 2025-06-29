@@ -1,9 +1,11 @@
 import tkinter as tk
 from tkinter import filedialog
+import pandas as pd
 
 class ExcelOracleApp:
     def __init__(self, root):
         self.root = root
+        self.df = None
         self.root.title("Excel Oracle")
         self.root.geometry("400x200")
 
@@ -22,6 +24,14 @@ class ExcelOracleApp:
         )
         if not filepath:
             return
+        
+        try:
+            if filepath.endswith('.csv'):
+                self.df = pd.read_csv(filepath)
+            else:
+                self.df = pd.read_excel(filepath)
+        except Exception as e:
+            print(f"Error loading file: {e}")
 
     def predict(self):
         pass
