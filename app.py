@@ -3,6 +3,9 @@ from tkinter import filedialog
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 class ExcelOracleApp:
     def __init__(self, root):
