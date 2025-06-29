@@ -17,7 +17,11 @@ class ExcelOracleApp:
         self.predict_button.pack(pady=10)
 
     def load_file(self):
-        pass
+        filepath = filedialog.askopenfilename(
+            filetypes=[("Excel files", "*.xlsx *.xls"), ("CSV files", "*.csv")]
+        )
+        if not filepath:
+            return
 
     def predict(self):
         pass
