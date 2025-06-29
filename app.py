@@ -63,11 +63,18 @@ class ExcelOracleApp:
         fig = Figure(figsize=(6, 4), dpi=100)
         plot = fig.add_subplot(111)
 
-        canvas = FigureCanvasTkAgg(fig, master=plot_window)
-        canvas.get_tk_widget().pack()
-
         plot.plot(self.df['Day'], self.df['Sales'], 'b-', label='Historical Data')
         plot.plot(future_days['Day'], future_sales, 'r--', label='Predicted Future')
+
+        plot.set_title("Sales Prediction")
+        plot.set_xlabel("Day")
+        plot.set_ylabel("Sales")
+        plot.legend()
+        plot.grid(True)
+
+        canvas = FigureCanvasTkAgg(fig, master=plot_window)
+        canvas.draw()
+        canvas.get_tk_widget().pack()
 
 if __name__ == "__main__":
     root = tk.Tk()
