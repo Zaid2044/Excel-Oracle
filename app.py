@@ -2,9 +2,6 @@ import tkinter as tk
 from tkinter import filedialog
 import pandas as pd
 import lightgbm as lgb
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
@@ -21,7 +18,7 @@ class ExcelOracleApp:
         self.load_button = tk.Button(root, text="Load Excel File", command=self.load_file)
         self.load_button.pack(pady=10)
 
-        self.predict_button = tk.Button(root, text="Predict The Future", state=tk.DISABLED, command=self.predict)
+        self.predict_button =.Button(root, text="Predict The Future", state=tk.DISABLED, command=self.predict)
         self.predict_button.pack(pady=10)
 
     def load_file(self):
@@ -47,16 +44,29 @@ class ExcelOracleApp:
             self.label.config(text="No data loaded to predict.")
             return
 
-        X = self.df[['Day']]
+        self.df['day_of_week'] = (self.df['Day'] - 1) % 7
+        self.df['week_of_year'] = (self.df['Day'] - 1) // 7
+
+        self.df['day_of_week'] = self.df['day_of_week'].astype('category')
+        self.df['week_of_year'] = self.df['week_of_year'].astype('category')
+
+        X = self.df[['Day', 'day_of_week', 'week_of_year']]
         y = self.df['Sales']
 
-        model = lgb.LGBMRegressor()
+        model = lgb.LGBMRegressor(random_state=42)
         model.fit(X, y)
 
         last_day = self.df['Day'].max()
-        future_days = pd.DataFrame({'Day': range(last_day + 1, last_day + 6)})
         
-        future_sales = model.predict(future_days)
+        future_days_range = range(last_day + 1, last_day + 6)
+        future_df = pd.DataFrame({'Day': future_days_range})
+        future_df['day_of_week'] = (future_df['Day'] - 1) % 7
+        future_df['week_of_year'] = (future_df['Day'] - 1) // 7
+
+        future_df['day_of_week'] = future_df['day_of_week'].astype('category')
+        future_df['week_of_year'] = future_df['week_of_year'].astype('category')
+        
+        future_sales = model.predict(future_df)
 
         plot_window = tk.Toplevel(self.root)
         plot_window.title("The Future is Now")
@@ -65,7 +75,7 @@ class ExcelOracleApp:
         plot = fig.add_subplot(111)
 
         plot.plot(self.df['Day'], self.df['Sales'], 'b-', label='Historical Data')
-        plot.plot(future_days['Day'], future_sales, 'r--', label='Predicted Future')
+        plot.plot(future_df['Day'], future_sales, 'r--', label='Predicted Future')
 
         plot.set_title("Sales Prediction")
         plot.set_xlabel("Day")
