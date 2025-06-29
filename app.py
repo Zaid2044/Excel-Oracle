@@ -49,7 +49,14 @@ class ExcelOracleApp:
         model = LinearRegression()
         model.fit(X, y)
 
-        print("Model trained successfully.")
+        last_day = self.df['Day'].max()
+        future_days = pd.DataFrame({'Day': range(last_day + 1, last_day + 6)})
+        
+        future_sales = model.predict(future_days)
+
+        for day, sale in zip(future_days['Day'], future_sales):
+            print(f"Predicted sales for day {day}: {int(sale)}")
+
 
 if __name__ == "__main__":
     root = tk.Tk()
