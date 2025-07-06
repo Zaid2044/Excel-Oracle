@@ -48,3 +48,73 @@ This project includes:
 
 ---
 
+## ⚙️ Setup Instructions
+
+### ✅ Prerequisites
+
+* Python 3.9+
+* OpenAI API Key
+
+### 📦 Installation
+
+```bash
+git clone https://github.com/Zaid2044/Excel-Oracle.git
+cd Excel-Oracle
+python -m venv venv
+.\venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### 🔐 Configure API Key
+
+Create a `.env` file in the root:
+
+```env
+OPENAI_API_KEY="your_actual_key_here"
+```
+
+---
+
+## 🚀 Run the App
+
+```bash
+streamlit run app.py
+```
+
+Visit: [http://localhost:8501](http://localhost:8501)
+Upload your Excel file → Ask your questions → Get clean answers and charts
+
+---
+
+## 📊 Demo
+
+<p align="center">
+  <img src="assets/demo.png" alt="Excel Oracle Demo" width="700"/>
+</p>
+
+---
+
+## 📁 Project Structure
+
+```
+Excel-Oracle/
+├── app.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 🧩 Future Upgrades
+
+* 🗂️ Multi-sheet support
+* 🧮 Google Sheets + CSV integration
+* 🎙️ Voice query input
+* 🔄 Retain question history across sessions
+
+---
+
+## 🧑‍💻 Author
+**MOHAMMED ZAID AHMED**
+
+---
