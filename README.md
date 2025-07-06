@@ -27,3 +27,24 @@ This project includes:
 
 ---
 
+## ✨ Features
+
+* 🤖 Chat with your Excel like it's ChatGPT
+* 🧠 GPT-4 / GPT-3.5 integration via OpenAI API
+* 📊 Dynamic charts using Matplotlib and Plotly
+* 📄 Multiple question sessions per file
+* 💡 Understands structure, context, and column relationships
+
+---
+
+## 🔍 Tech Stack
+
+* **Language:** Python 3.9+
+* **Framework:** Streamlit
+* **LLM API:** OpenAI GPT (3.5/4)
+* **Data Engine:** Pandas
+* **Charts:** Matplotlib, Plotly
+* **Excel Parsing:** OpenPyXL
+
+---
+
