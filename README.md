@@ -12,3 +12,18 @@
 </p>
 
 ---
+
+## 🧠 Overview
+
+**Excel Oracle** makes spreadsheet analysis as easy as asking a question. No formulas, no filters — just upload your Excel file and ask. It understands context, processes data with Pandas, and responds using GPT-3.5 or GPT-4 via the OpenAI API.
+
+This project includes:
+
+* 📥 File uploader for `.xlsx`
+* 💬 Natural language interface
+* 📊 Smart chart generation
+* 🧠 GPT-powered query resolution
+* 📈 Visual + tabular output
+
+---
+
