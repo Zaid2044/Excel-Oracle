@@ -86,14 +86,6 @@ Upload your Excel file → Ask your questions → Get clean answers and charts
 
 ---
 
-## 📊 Demo
-
-<p align="center">
-  <img src="assets/demo.png" alt="Excel Oracle Demo" width="700"/>
-</p>
-
----
-
 ## 📁 Project Structure
 
 ```
